@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Am1Onion's Games</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #008080;
+      font-family: "MS Sans Serif", Arial, sans-serif;
+      font-size: 11px;
+      color: #000;
+    }
+
+    /* ── WINDOW ── */
+    .window {
+      width: 640px;
+      margin: 40px auto;
+      border: 2px solid;
+      border-color: #fff #808080 #808080 #fff;
+      background: #c0c0c0;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .title-bar {
+      background: #000080;
+      color: #fff;
+      padding: 3px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 11px;
+      user-select: none;
+    }
+
+    .title-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .title-buttons {
+      display: flex;
+      gap: 2px;
+    }
+
+    .win-btn {
+      width: 16px;
+      height: 14px;
+      background: #c0c0c0;
+      border: 1px solid;
+      border-color: #fff #808080 #808080 #fff;
+      font-size: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+      color: #000;
+    }
+
+    /* ── MENU BAR ── */
+    .menu-bar {
+      background: #c0c0c0;
+      border-bottom: 1px solid #808080;
+      padding: 2px 4px;
+      display: flex;
+      gap: 2px;
+    }
+
+    .menu-item {
+      padding: 2px 6px;
+      cursor: default;
+    }
+
+    .menu-item:hover {
+      background: #000080;
+      color: #fff;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      padding: 12px;
+    }
+
+    .address-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .address-label {
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .address-input {
+      flex: 1;
+      border: 1px solid;
+      border-color: #808080 #fff #fff #808080;
+      background: #fff;
+      padding: 1px 4px;
+      font-family: "MS Sans Serif", Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    /* ── FILE AREA ── */
+    .file-area {
+      background: #fff;
+      border: 1px solid;
+      border-color: #808080 #fff #fff #808080;
+      padding: 12px;
+      min-height: 300px;
+    }
+
+    .area-title {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #000080;
+    }
+
+    /* ── GAME GRID ── */
+    .game-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .game-card {
+      display: block;
+      text-decoration: none;
+      color: #000;
+      width: 80px;
+      text-align: center;
+      cursor: default;
+    }
+
+    .game-card:hover .game-icon {
+      background: #000080;
+    }
+
+    .game-card:hover .game-label {
+      background: #000080;
+      color: #fff;
+    }
+
+    .game-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .game-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      image-rendering: pixelated;
+    }
+
+    .no-img {
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .game-label {
+      font-size: 11px;
+      word-break: break-word;
+      padding: 1px 2px;
+      line-height: 1.3;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      margin-top: 16px;
+      border: 1px solid #808080;
+      background: #ffffcc;
+      padding: 6px 8px;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .info-box b { color: #000080; }
+
+    /* ── STATUS BAR ── */
+    .status-bar {
+      background: #c0c0c0;
+      border-top: 1px solid #808080;
+      padding: 2px 8px;
+      font-size: 11px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .status-panel {
+      border: 1px solid;
+      border-color: #808080 #fff #fff #808080;
+      padding: 0 6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="window">
+
+  <div class="title-bar">
+    <div class="title-bar-left">
+      Am1Onion's Games
+    </div>
+    <div class="title-buttons">
+      <div class="win-btn">_</div>
+      <div class="win-btn">□</div>
+      <div class="win-btn">✕</div>
+    </div>
+  </div>
+
+  <div class="menu-bar">
+    <span class="menu-item"><u>F</u>ile</span>
+    <span class="menu-item"><u>E</u>dit</span>
+    <span class="menu-item"><u>V</u>iew</span>
+    <span class="menu-item"><u>H</u>elp</span>
+  </div>
+
+  <div class="content">
+
+    <div class="address-bar">
+      <span class="address-label">Address</span>
+      <input class="address-input" type="text" value="C:\Am1Onion\Games\" readonly />
+    </div>
+
+    <div class="file-area">
+      <div class="area-title">Am1Onion's Games</div>
+
+      <div class="game-grid" id="game-grid">
+
+        <!--
+        ════════════════════════════════════
+        HOW TO ADD A GAME — copy this block:
+
+        <a class="game-card" href="YOUR_LINK" target="_blank"
+           data-title="Game Name"
+           data-thumb="thumbnail.png">
+        </a>
+
+        - href       = link to your game
+        - data-title = name shown under icon
+        - data-thumb = image path or URL
+                       (leave "" for default icon)
+        ════════════════════════════════════
+        -->
+
+        <a class="game-card" href="https://example.com/game1" target="_blank"
+           data-title="Game One"
+           data-thumb="">
+        </a>
+
+        <a class="game-card" href="https://example.com/game2" target="_blank"
+           data-title="Game Two"
+           data-thumb="">
+        </a>
+
+        <a class="game-card" href="https://example.com/game3" target="_blank"
+           data-title="Game Three"
+           data-thumb="">
+        </a>
+
+      </div>
+
+      <div class="info-box">
+        <b>Tip:</b> Click an icon to play. To add a game, open <b>index.html</b> and copy one of the <code>&lt;a class="game-card"&gt;</code> blocks.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="status-bar">
+    <span class="status-panel" id="obj-count">3 object(s)</span>
+    <span class="status-panel">Ready</span>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.game-card').forEach(card => {
+    const title = card.dataset.title || 'Game';
+    const thumb = card.dataset.thumb;
+
+    const icon = document.createElement('div');
+    icon.className = 'game-icon';
+
+    if (thumb) {
+      const img = document.createElement('img');
+      img.src = thumb;
+      img.alt = title;
+      icon.appendChild(img);
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'no-img';
+      ph.textContent = ':P';
+      icon.appendChild(ph);
+    }
+
+    const label = document.createElement('div');
+    label.className = 'game-label';
+    label.textContent = title;
+
+    card.appendChild(icon);
+    card.appendChild(label);
+  });
+
+  const count = document.querySelectorAll('.game-card').length;
+  document.getElementById('obj-count').textContent = count + ' object(s)';
+</script>
+
+</body>
+</html>
